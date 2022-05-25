@@ -1,0 +1,66 @@
+{
+    "name": "tgmdev/tgm-panel",
+    "description": "TGM Panel",
+    "keywords": ["TGM"],
+    "homepage": "https://tgmpanel.com/",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-export": "@dev",
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "kartik-v/yii2-field-range": "*",
+        "liyunfang/yii2-contextmenu": "^1.0",
+        "2amigos/yii2-ckeditor-widget": "^2.1",
+        "nterms/yii2-pagesize-widget": "*",
+        "matthiasmullie/minify": "^1.3",
+        "dektrium/yii2-user": "^0.9.12",
+        "himiklab/yii2-recaptcha-widget": "*",
+        "dektrium/yii2-rbac": "1.0.0-alpha@dev",
+        "life2016/yii2-tagsinput": "^1.1",
+        "tangocard/raas": "^1.3",
+        "yii2mod/yii2-enum": "*",
+        "clxcommunications/sdk-xms": "*",
+        "neverbounce/neverbounce-php":"~4.1.0",
+        "paulzi/yii2-json-behavior": "^1.0"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3"
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
